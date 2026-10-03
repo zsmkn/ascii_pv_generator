@@ -1,0 +1,37 @@
+# reference projects (third-party, kept local only)
+refs/
+
+# local notes for Claude Code sessions / design notes
+CLAUDE.md
+.claude/
+plan.md
+milestones-done.md
+
+# dev-only evaluation scripts (need the local, uncommitted test songs)
+tools/
+
+# environments / caches
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+build/
+dist/
+
+# editors / OS
+.vscode/
+.idea/
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# user inputs and generated outputs
+input/
+work/
+out/
+*.mp3
+*.wav
+*.flac
+*.mp4
+*.log

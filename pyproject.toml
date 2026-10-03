@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ascii-pv"
+version = "0.0.1"
+description = "Music + lyrics -> ASCII-style PV, played in the terminal or rendered to MP4."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+dependencies = [
+    "numpy>=1.26",
+    "Pillow>=10",
+]
+
+[project.optional-dependencies]
+# M1: audio analysis + playback (ffmpeg must also be on PATH)
+audio = [
+    "librosa>=0.10",
+    "soundfile>=0.12",
+    "sounddevice>=0.4",
+    "mutagen>=1.47",
+]
+# M5/M6: ML analysis layer (install a CUDA build of torch first for GPU)
+ml = [
+    "torch",
+    "torchaudio",
+    "demucs",
+    "beat-this",
+    "transformers",
+    "pypinyin",          # Chinese plain-text lyric timing (M9 for Chinese)
+    "rembg",
+]
+gui = ["gradio>=5"]
+dev = ["pytest>=8"]
+
+[project.scripts]
+ascii-pv = "ascii_pv.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["ascii_pv*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
